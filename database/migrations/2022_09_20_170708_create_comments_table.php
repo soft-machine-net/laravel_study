@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->nullable();
 
-            $table->dateTime('created')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
             //外部キー制約
             $table->foreign('post_id')
                 ->references('id')

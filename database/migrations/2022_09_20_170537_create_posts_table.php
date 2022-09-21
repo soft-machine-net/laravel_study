@@ -21,8 +21,8 @@ return new class extends Migration
             $table->string('post_type')->default('post');
             $table->foreignId('user_id');
             $table->string('slug')->unique()->nullable();
-            $table->dateTime('created')->useCurrent();
-            $table->dateTime('modified')->useCurrent();
+            $table->dateTime('created_at')->useCurrent();
+            $table->dateTime('updated_at')->useCurrent();
 
             //外部キー制約
             $table

@@ -14,6 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('post_category', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('post_id');
             $table->foreignId('category_id');
 
@@ -21,13 +22,13 @@ return new class extends Migration
             $table->foreign('post_id')
                 ->references('id')
                 ->on('posts');
-                
+
             $table->foreign('category_id')
                 ->references('id')
                 ->on('categories');
             
-            // 外部キー２つを複合主キー
-            $table->primary(['post_id','category_id']);
+            // ユニーク設定
+            $table->unique(['post_id','category_id']);
         });
     }
 
