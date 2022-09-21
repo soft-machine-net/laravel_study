@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('memo');
             $table->string('post_type')->default('post');
             $table->foreignId('user_id');
-            $table->string('slug')->nullable();
+            $table->string('slug')->unique()->nullable();
             $table->dateTime('created')->useCurrent();
             $table->dateTime('modified')->useCurrent();
 

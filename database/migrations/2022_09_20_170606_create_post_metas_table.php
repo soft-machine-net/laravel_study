@@ -18,10 +18,13 @@ return new class extends Migration
             $table->foreignId('post_id');
             $table->string('key');
             $table->text('value')->nullable();
+
             $table
                 ->foreign('post_id')
                 ->references('id')
                 ->on('posts');
+            
+            $table->unique(['post_id','key']);
         });
     }
 

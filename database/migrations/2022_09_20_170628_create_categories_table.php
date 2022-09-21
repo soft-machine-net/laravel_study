@@ -26,6 +26,7 @@ return new class extends Migration
                 ->references('id')
                 ->on('categories')
                 ;
+            $table->unique(['name','taxonomy']);
         });
     }
 
